@@ -1,0 +1,12 @@
+{{ object.title}} <br>
+
+{{ object.description}} <br>
+
+{% if object.image  %}
+<img src='{{ object.image.url }}' class='img-fluid' />
+{% else %}
+
+<p>No Image exists </p>
+
+{% endif %}
+
