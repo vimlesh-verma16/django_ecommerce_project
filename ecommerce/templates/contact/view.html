@@ -1,21 +1,21 @@
 {% extends  "base.html" %}   
 {% load static %}
 {% block content %}
-        <div class='text-center'> 
-            <h1>{{ title }}</h1>
-        </div>
-        <div class='text-center'>
-            <h1>Hello, world New Home Page!</h1>
-        </div>
+<div class='text-center'> 
+    <h1>{{ title }}</h1>
+</div>
+<div class='text-center'>
+    <h1>Hello, world New Home Page!</h1>
+</div>
 
-        <div class = "container">
-        <div class='col'>
-            <form method = "POST"> {% csrf_token %}
-            {{ form }}
-            <button type = "Submit" class = "btn btn-default"> Submit</button> 
-            </form>
-        </div>
-         </div>
+<div class = "container">
+<div class='col'>
+    <form method = "POST"> {% csrf_token %}
+    {{ form }}
+    <button type = "Submit" class = "btn btn-default"> Submit</button> 
+    </form>
+</div>
+  </div>
 {% endblock %}
    
    
