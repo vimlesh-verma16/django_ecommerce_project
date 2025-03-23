@@ -1,5 +1,20 @@
-{% for obj in object_list %}
-<br>
-<a href="{{obj.get_absolute_url}}"> {{ obj}} </a> 
+{% extends  "base.html" %}   
 
-{% endfor %}
+
+{% block base_head %}
+<title> list.html </title>
+{% endblock %}
+
+
+{% block content %}
+    <div class='container'>
+        <div class='row g-3'>
+            {% for obj in object_list %}
+            <div class='col'>
+            {% include "products\snipptes\card.html" with instance=obj %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
