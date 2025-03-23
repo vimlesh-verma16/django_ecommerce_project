@@ -33,7 +33,7 @@ urlpatterns = [
     path("register/", views.Register_page, name="register_page"),
     path("old", views.home_page_old, name="home_page_old"),
     path("admin/", admin.site.urls),
-    path("products/", include("products.urls")),
+    path("products/", include(("products.urls", "products"), namespace="products")),
 ]
 
 if settings.DEBUG:
