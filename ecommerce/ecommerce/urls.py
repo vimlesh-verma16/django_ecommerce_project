@@ -26,11 +26,11 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path("", views.home_page, name="home_page"),
-    path("about/", views.about_page, name="about_page"),
-    path("contact/", views.contact_page, name="contact_page"),
-    path("login/", views.Login_page, name="login_page"),
-    path("register/", views.Register_page, name="register_page"),
+    path("", views.home_page, name="home"),
+    path("about/", views.about_page, name="about"),
+    path("contact/", views.contact_page, name="contact"),
+    path("login/", views.Login_page, name="login"),
+    path("register/", views.Register_page, name="register"),
     path("old", views.home_page_old, name="home_page_old"),
     path("admin/", admin.site.urls),
     path("products/", include(("products.urls", "products"), namespace="products")),
