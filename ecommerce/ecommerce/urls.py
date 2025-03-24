@@ -16,8 +16,10 @@ Including another URLconf
 """
 
 from itertools import product
+from tempfile import template
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 # Above fucntion is used fro serving file in STATIC_URL and MEDIA_URL
 
@@ -34,6 +36,10 @@ urlpatterns = [
     path("old", views.home_page_old, name="home_page_old"),
     path("admin/", admin.site.urls),
     path("products/", include(("products.urls", "products"), namespace="products")),
+    path(
+        "bootstrap/",
+        TemplateView.as_view(template_name="bootstrap/example.html"),
+    ),
 ]
 
 if settings.DEBUG:
