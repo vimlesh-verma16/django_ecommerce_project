@@ -7,7 +7,8 @@
   <div class="card-body">
     <h5 class="card-title">{{ instance.title}}</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">card subtitle</h6>
-    <p class="card-text">{{ instance.description }}</p>
+    <p class="card-text">{{ instance.description | striptags | truncatewords:12 }}</p>
+
     <a href="{{obj.get_absolute_url}}" class="btn btn-primary">View</a>
     {% comment %} <a href="{% url "products:detail" slug=instance.slug %}" class="btn btn-warning">URL Shortcut</a> {% endcomment %}
   </div>

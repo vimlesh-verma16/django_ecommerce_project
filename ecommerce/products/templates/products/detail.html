@@ -6,17 +6,23 @@
 {% endblock %}
 
 {% block content %}
+    
+    <div class='container'>
 
-{{ object.title}} <br>
+        <div class='row g-3'>
+            <div class='col'>
+            <h1>{{ object.title}}</h1> 
+            {{ object.timestamp | timesince }} 
+            {{ object.description | linebreaks}} <br>
+            {% if object.image  %}
+            <img src='{{ object.image.url }}' class='img-fluid' />
+            {% else %}
 
-{{ object.description}} <br>
-
-{% if object.image  %}
-<img src='{{ object.image.url }}' class='img-fluid' />
-{% else %}
-
-<p>No Image exists </p>
-
-{% endif %}
+            <p>No Image exists </p>
+            
+            {% endif %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
