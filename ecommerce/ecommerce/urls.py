@@ -15,14 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from itertools import product
-from tempfile import template
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.generic import TemplateView
 
 # Above fucntion is used fro serving file in STATIC_URL and MEDIA_URL
-
+from django.views.generic import TemplateView
 from django.contrib import admin
 from django.urls import path, include
 from . import views
@@ -36,6 +33,7 @@ urlpatterns = [
     path("old", views.home_page_old, name="home_page_old"),
     path("admin/", admin.site.urls),
     path("products/", include(("products.urls", "products"), namespace="products")),
+    path("search/", include(("search.urls", "search"), namespace="search")),
     path(
         "bootstrap/",
         TemplateView.as_view(template_name="bootstrap/example.html"),
