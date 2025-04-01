@@ -33,7 +33,9 @@ class ProductQuerySet(models.query.QuerySet):
             Q(title__icontains=query)
             | Q(description__icontains=query)
             | Q(price__icontains=query)
+            | Q(tag__title__icontains=query)
         )
+        # tshirt, t-shirt, T-shirt, red, blue, green)
         return self.filter(lookup).distinct()
 
 
