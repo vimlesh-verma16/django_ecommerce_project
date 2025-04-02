@@ -9,19 +9,15 @@ def create_cart(user=None):
 
 
 def cart_home(request):
-    request.session["cart_id"] = "12"
     cart_id = request.session.get("cart_id", None)
-    # if cart_id is None:
-    #     cart_obj = create_cart()
-    #     request.session["cart_id"] = cart_obj.id  # Setter fun
-    # else:
     qs = Cart.objects.filter(id=cart_id)
     if qs.count() == 1:
-        print("Cart ID Exist")
+        print("Cart ID exists")
         cart_obj = qs.first()
+        if request.user.is_authenticated and cart_obj.user is None:
+            cart_obj.user = request.user
+            cart_obj.save()
     else:
-        cart_obj = create_cart()
+        cart_obj = Cart.objects.new(user=request.user)
         request.session["cart_id"] = cart_obj.id
-
-        cart_obj = Cart.objects.get(id=cart_id)
     return render(request, "carts/home.html", {})
