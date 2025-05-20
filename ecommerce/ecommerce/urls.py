@@ -29,7 +29,7 @@ urlpatterns = [
     path("about/", views.about_page, name="about"),
     path("contact/", views.contact_page, name="contact"),
     path("login/", views.Login_page, name="login"),
-    path("cart/", include(("carts.urls", "carts"), namespace="cart")),
+    path("cart/", include(("carts.urls", "cart"), namespace="cart")),
     path("register/", views.Register_page, name="register"),
     path("old", views.home_page_old, name="home_page_old"),
     path("admin/", admin.site.urls),
